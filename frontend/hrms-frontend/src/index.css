@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Global Styles ---------- */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+}
+
+/* Serif headings */
+.serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+/* ===============================
+   MODERN CLASSIC BACKGROUND
+================================ */
+body {
+  background: linear-gradient(45deg, #f3f7f6, #eef2f3);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===============================
+   GLASS EFFECT
+================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ===============================
+   STAGGERED FADE IN
+================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-stagger {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* ===============================
+   FLOATING CARD SHADOW
+================================ */
+.floating-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-radius: 16px;
+  background: white;
+}
+.glass-checkin {
+  padding: 14px 28px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #34d399, #10b981);
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 8px 20px rgba(16,185,129,0.3);
+  transition: all 0.3s ease;
+}
+
+.glass-checkin:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(16,185,129,0.45);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-stagger {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+/* ===== Mesh Gradient Background ===== */
+.mesh-bg {
+  background: radial-gradient(
+      at 40% 20%,
+      #ffffff 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 80% 0%,
+      #f1f5f9 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 0% 50%,
+      #eef2f3 0px,
+      transparent 50%
+    );
+  background-size: 200% 200%;
+  animation: meshMove 20s ease infinite;
+}
+
+@keyframes meshMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* ===== Mesh Gradient Background ===== */
+.mesh-bg {
+  background:
+    radial-gradient(at 40% 20%, #ffffff 0px, transparent 50%),
+    radial-gradient(at 80% 0%, #f1f5f9 0px, transparent 50%),
+    radial-gradient(at 0% 50%, #eef2f3 0px, transparent 50%);
+  background-size: 200% 200%;
+  animation: meshMove 18s ease infinite;
+}
+
+@keyframes meshMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* Fonts */
+.serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Modern Card */
+.data-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+/* Inputs */
+.input {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.4);
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
