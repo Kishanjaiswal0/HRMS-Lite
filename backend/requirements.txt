@@ -16,4 +16,5 @@ h11==0.16.0
 idna==3.11
 typing-extensions==4.15.0
 
-psycopg2-binary==2.9.9
+psycopg2-binary>=2.9.10
+
