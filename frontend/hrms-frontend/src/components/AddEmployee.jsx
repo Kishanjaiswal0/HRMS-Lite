@@ -10,6 +10,7 @@ export default function AddEmployee() {
   });
 
   const handleChange = (e) => {
+    e.preventDefault();
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
