@@ -36,7 +36,7 @@ async def global_exception_handler(request: Request, exc: Exception):
 # Configure CORS to allow requests from React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("CLIENT_URL", "http://localhost:5173"), "https://hrms-lite-2o9v.vercel.app"], 
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all headers
