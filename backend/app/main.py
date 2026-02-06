@@ -27,14 +27,14 @@ async def global_exception_handler(request: Request, exc: Exception):
         content={"detail": str(exc), "type": type(exc).__name__}
     )
     # Add CORS headers so frontend can read the error
-    response.headers["Access-Control-Allow-Origin"] = "http://localhost:5173"
+    response.headers["Access-Control-Allow-Origin"] = "https://hrms-lite-snowy-rho.vercel.app/"
     response.headers["Access-Control-Allow-Credentials"] = "true"
     return response
 
 # Configure CORS to allow requests from React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # React dev server
+    allow_origins=["https://hrms-lite-snowy-rho.vercel.app/"],  # React dev server
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
     allow_headers=["*"],  # Allow all headers
