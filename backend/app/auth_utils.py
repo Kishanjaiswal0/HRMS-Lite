@@ -7,7 +7,13 @@ from passlib.context import CryptContext
 pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 
 # JWT settings
-SECRET_KEY = "your-secret-key-change-this-in-production"  # Change this!
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# JWT settings
+SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-change-this-in-production")  # Fallback for dev
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_HOURS = 24
 

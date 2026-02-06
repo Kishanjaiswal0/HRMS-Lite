@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { Lock, User } from "lucide-react";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("admin");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const { login } = useAuth();
@@ -90,7 +90,7 @@ export default function Login() {
         <div className="mt-6 p-4 bg-slate-50 rounded-lg">
           <p className="text-xs text-slate-500 text-center">
             <strong>Demo Credentials:</strong><br />
-            Username: admin | Password: admin123
+            Username: admin | Password: (hidden)
           </p>
         </div>
       </div>

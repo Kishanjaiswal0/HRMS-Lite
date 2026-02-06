@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models import Admin
-from app.schemas import LoginRequest, LoginResponse
+from app.schemas import LoginRequest, LoginResponse, ChangePasswordRequest
 from app.auth_utils import verify_password, create_access_token
 
 router = APIRouter()
@@ -37,3 +37,22 @@ def login(credentials: LoginRequest, db: Session = Depends(get_db)):
         access_token=access_token,
         admin_name=admin.full_name or admin.username
     )
+
+@router.put("/change-password", status_code=status.HTTP_204_NO_CONTENT)
+def change_password(
+    credentials: ChangePasswordRequest,
+    db: Session = Depends(get_db),
+    # In a real app, you'd extract the current user from the token dependencies here
+    # For this lite version, we'll assume there is only one admin or we check against the only admin
+):
+    admin = db.query(Admin).first()
+    if not admin:
+        raise HTTPException(status_code=404, detail="Admin not found")
+        
+    if not verify_password(credentials.old_password, admin.password_hash):
+        raise HTTPException(status_code=400, detail="Incorrect old password")
+        
+    from app.auth_utils import get_password_hash
+    admin.password_hash = get_password_hash(credentials.new_password)
+    db.commit()
+    return None

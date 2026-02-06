@@ -12,6 +12,16 @@ export default function EmployeeList() {
       .finally(() => setLoading(false));
   }, []);
 
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this employee?")) {
+      api.delete(`/employees/${id}`)
+        .then(() => {
+          setEmployees(employees.filter(emp => emp.id !== id));
+        })
+        .catch(err => console.error("Failed to delete employee", err));
+    }
+  };
+
   if (loading) {
     return <p className="text-gray-500">Loading employees...</p>;
   }
@@ -31,6 +41,7 @@ export default function EmployeeList() {
             <th className="border p-2">Name</th>
             <th className="border p-2">Email</th>
             <th className="border p-2">Department</th>
+            <th className="border p-2">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +51,14 @@ export default function EmployeeList() {
               <td className="border p-2">{emp.full_name}</td>
               <td className="border p-2">{emp.email}</td>
               <td className="border p-2">{emp.department}</td>
+              <td className="border p-2">
+                <button
+                  onClick={() => handleDelete(emp.id)}
+                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
