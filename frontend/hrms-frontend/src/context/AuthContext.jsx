@@ -28,7 +28,8 @@ export const AuthProvider = ({ children }) => {
     const login = async (username, password) => {
         try {
             // Call backend API
-            const response = await fetch("https://hrms-lite-6hbt.onrender.com/login", {
+// NEW (CORRECT)
+const response = await fetch("https://hrms-lite-6hbt.onrender.com/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
